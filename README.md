@@ -6,3 +6,6 @@ npm install -D tailwindcss postcss autoprefixer
 npx tailwindcss init
 
 
+#16.3 Apollo Setup
+https://www.apollographql.com/docs/react/get-started
+npm install @apollo/client graphql
