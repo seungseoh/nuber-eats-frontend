@@ -2,5 +2,7 @@
 
 #16.1 TailwindCSS part One
 https://tailwindcss.com/docs/installation
-npm install -D tailwindcss
+npm install -D tailwindcss postcss autoprefixer
 npx tailwindcss init
+
+
