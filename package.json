@@ -2,6 +2,9 @@
   "name": "nuber-eats-frontend",
   "version": "0.1.0",
   "private": true,
+  "exports": {
+    "./main.css": "./dist/main.css"
+  },
   "dependencies": {
     "@apollo/client": "^3.7.17",
     "@testing-library/jest-dom": "^5.16.5",
