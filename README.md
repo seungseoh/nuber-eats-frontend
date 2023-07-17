@@ -1,5 +1,14 @@
 ## Nuber Eats FrontEnd
 
+
+# 17.14 Saving the Token
+react-helmet-async
+npm i react-helmet-async
+https://www.npmjs.com/package/react-helmet-async
+
+로그인 전에 remember me라는 체크리스트를 통해 체크 시 로그인을 유지시키고, 체크하지 않을 시 브라우저 종료시 로그인을 유지시키지 않는 기능도 고려해보기
+
+
 # 17.13 Create Account Mutation part Two
 자바스크립트 email 정규표현식
 ```
