@@ -1,5 +1,33 @@
 ## Nuber Eats FrontEnd
 
+# 17.13 Create Account Mutation part Two
+자바스크립트 email 정규표현식
+```
+/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+```
+https://emailregex.com/
+
+React Router 6버전 사용시
+history=>navigate로 변경
+```
+const navigate = useNavigate();
+
+navigate("/login");
+navigate("/login",{ state : { email, password } } ); // state 사용시
+```
+
+계정 생성후, 생성한 이메일과 비밀번호를 state에 담아서 Login페이지로 보낼 수 있습니다. 보낸 이메일과 비밀번호는 useLocation을 통해 가져와서 바로 form 창에 넣어줄 수 있습니다.
+```
+interface LocationState{
+email: string;
+password: string;
+}
+
+const location: Location = useLocation();
+const state=location.state as LocationState
+```
+
+
 # 17.12 Create Account Mutation
 
 React Helmet

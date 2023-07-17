@@ -7,6 +7,7 @@ import { LoginMutation, LoginMutationVariables } from "../__types__/graphql";
 import nuberLogo from "../images/logo.svg";
 import { Button } from "../components/button";
 import { Link } from "react-router-dom";
+import { isLoggedInVar } from "../apollo";
 
 const LOGIN_MUTATION = gql`
   mutation login($loginInput: LoginInput!) {
@@ -40,6 +41,7 @@ export const Login = () => {
     } = data;
     if (ok) {
       console.log(token);
+      isLoggedInVar(true);
     }
   };
 
@@ -78,7 +80,15 @@ export const Login = () => {
         >
           <input
             {...register("email", {
-              required: true,
+              required: {
+                value: true,
+                message: "Email is required",
+              },
+              pattern: {
+                value:
+                  /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                message: "이메일 형식으로 입력해야 합니다.",
+              },
             })}
             name="email"
             type="email"
@@ -90,8 +100,14 @@ export const Login = () => {
           )}
           <input
             {...register("password", {
-              required: true,
-              minLength: 3,
+              required: {
+                value: true,
+                message: "Password is required",
+              },
+              minLength: {
+                value: 3,
+                message: "Password must be more than 3 chars.",
+              },
             })}
             name="password"
             type="password"
@@ -100,9 +116,6 @@ export const Login = () => {
           />
           {errors.password?.message && (
             <FormError errorMessage={errors.password?.message} />
-          )}
-          {errors.password?.type === "minLength" && (
-            <FormError errorMessage="Password must be more than 10 chars." />
           )}
           <Button canClick={isValid} loading={loading} actionText={"Log in"} />
           {loginMutationResult?.login.error && (
