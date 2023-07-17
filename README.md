@@ -1,5 +1,19 @@
 ## Nuber Eats FrontEnd
 
+# 17.15 Using the Token
+Header
+Apollo Links를 함께 연결하여 모든 HTTP 요청에 authorization 헤더를 추가하십시오.
+request를 할 때마다 localStorage에서 토큰을 가져와서 헤더에 추가해서 보낼 수 있습니다.
+https://www.apollographql.com/docs/react/networking/authentication/#header
+
+Apollo Link
+Apollo Link 라이브러리를 사용하면 Apollo 클라이언트와 GraphQL 서버 간의 데이터 흐름을 사용자 지정할 수 있습니다.
+https://www.apollographql.com/docs/react/api/link/introduction/
+
+Array.prototype.concat()
+concat() 메서드는 인자로 주어진 배열이나 값들을 기존 배열에 합쳐서 새 배열을 반환합니다.
+https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/concat
+
 
 # 17.14 Saving the Token
 react-helmet-async
