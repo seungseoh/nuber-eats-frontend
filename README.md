@@ -1,5 +1,15 @@
 ## Nuber Eats FrontEnd
 
+# 17.16 Routers and 404s
+react-router-dom v6에서 Switch가 Routes로 변경되었고,
+exact가 삭제되었으며 Not Found는 path에 *을 넣어주면 됩니다.
+child는 element프로퍼티로 전달해주면 됩니다.
+https://stackoverflow.com/questions/67050966/how-to-build-a-404-page-with-react-router-dom-v6
+
+Redirect도 삭제되었으며, element로 Navigate를 넣어주시면됩니다
+https://stackoverflow.com/questions/69868956/how-to-redirect-in-react-router-v6
+
+
 # 17.15 Using the Token
 Header
 Apollo Links를 함께 연결하여 모든 HTTP 요청에 authorization 헤더를 추가하십시오.
