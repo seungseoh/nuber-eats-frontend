@@ -1,25 +1,36 @@
 ## Nuber Eats FrontEnd
 
+# 17.18 Header part Two
+
+Fontawesome 설치
+
+npm i --save @fortawesome/fontawesome-svg-core @fortawesome/free-solid-svg-icons @fortawesome/react-fontawesome
+
++추가 스타일
+npm install --save @fortawesome/free-brands-svg-icons @fortawesome/free-regular-svg-icons
+
+https://fontawesome.com/v5.15/how-to-use/on-the-web/using-with/react
 
 # 17.17 Header part One
+
 em, rem
 em, rem은 CSS의 font-size 속성 값에 비례해서 결정되는 상대 단위이다.
 em의 경우, 해당 단위가 사용되고 있는 요소의 font-size 속성 값이 기준
 rem에서 root, 즉 최상위 요소의 font-size 속성 값이 기준 (HTML에서 최상위 요소는 html태그)
 따라서 rem 경우, html 요소의 font-size 속성 값이 기준이 됩니다.
 
-
 # 17.16 Routers and 404s
+
 react-router-dom v6에서 Switch가 Routes로 변경되었고,
-exact가 삭제되었으며 Not Found는 path에 *을 넣어주면 됩니다.
+exact가 삭제되었으며 Not Found는 path에 \*을 넣어주면 됩니다.
 child는 element프로퍼티로 전달해주면 됩니다.
 https://stackoverflow.com/questions/67050966/how-to-build-a-404-page-with-react-router-dom-v6
 
 Redirect도 삭제되었으며, element로 Navigate를 넣어주시면됩니다
 https://stackoverflow.com/questions/69868956/how-to-redirect-in-react-router-v6
 
-
 # 17.15 Using the Token
+
 Header
 Apollo Links를 함께 연결하여 모든 HTTP 요청에 authorization 헤더를 추가하십시오.
 request를 할 때마다 localStorage에서 토큰을 가져와서 헤더에 추가해서 보낼 수 있습니다.
@@ -33,24 +44,27 @@ Array.prototype.concat()
 concat() 메서드는 인자로 주어진 배열이나 값들을 기존 배열에 합쳐서 새 배열을 반환합니다.
 https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/concat
 
-
 # 17.14 Saving the Token
+
 react-helmet-async
 npm i react-helmet-async
 https://www.npmjs.com/package/react-helmet-async
 
 로그인 전에 remember me라는 체크리스트를 통해 체크 시 로그인을 유지시키고, 체크하지 않을 시 브라우저 종료시 로그인을 유지시키지 않는 기능도 고려해보기
 
-
 # 17.13 Create Account Mutation part Two
+
 자바스크립트 email 정규표현식
+
 ```
 /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 ```
+
 https://emailregex.com/
 
 React Router 6버전 사용시
 history=>navigate로 변경
+
 ```
 const navigate = useNavigate();
 
@@ -59,6 +73,7 @@ navigate("/login",{ state : { email, password } } ); // state 사용시
 ```
 
 계정 생성후, 생성한 이메일과 비밀번호를 state에 담아서 Login페이지로 보낼 수 있습니다. 보낸 이메일과 비밀번호는 useLocation을 통해 가져와서 바로 form 창에 넣어줄 수 있습니다.
+
 ```
 interface LocationState{
 email: string;
@@ -68,7 +83,6 @@ password: string;
 const location: Location = useLocation();
 const state=location.state as LocationState
 ```
-
 
 # 17.12 Create Account Mutation
 
@@ -82,7 +96,6 @@ npm i react-helmet-async
 npm i @types/react-helmet-async -D
 
 https://www.npmjs.com/package/react-helmet-async
-
 
 # 17.11 UI Clonning part Two
 
