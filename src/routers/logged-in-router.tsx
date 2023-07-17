@@ -4,6 +4,7 @@ import { MeQuery } from "../__types__/graphql";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Restaurants } from "../pages/client/restaurants";
 import { NotFound } from "../pages/404";
+import { Header } from "../components/header";
 
 const ClientRoutes = [
   <Route key="Restaurants" path="/" exact>
@@ -33,6 +34,7 @@ export const LoggedInRouter = () => {
   }
   return (
     <Router>
+      <Header />
       <Switch>
         {data.me.role === "Client" && ClientRoutes}
         <Route>

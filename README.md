@@ -1,5 +1,14 @@
 ## Nuber Eats FrontEnd
 
+
+# 17.17 Header part One
+em, rem
+em, rem은 CSS의 font-size 속성 값에 비례해서 결정되는 상대 단위이다.
+em의 경우, 해당 단위가 사용되고 있는 요소의 font-size 속성 값이 기준
+rem에서 root, 즉 최상위 요소의 font-size 속성 값이 기준 (HTML에서 최상위 요소는 html태그)
+따라서 rem 경우, html 요소의 font-size 속성 값이 기준이 됩니다.
+
+
 # 17.16 Routers and 404s
 react-router-dom v6에서 Switch가 Routes로 변경되었고,
 exact가 삭제되었으며 Not Found는 path에 *을 넣어주면 됩니다.
