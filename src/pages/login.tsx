@@ -27,6 +27,7 @@ export const Login = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<ILoginForm>();
+  const onInvalid = (errors: Object) => console.error(errors);
   const onCompleted = (data: LoginMutation) => {
     const {
       login: { ok, token },
@@ -36,15 +37,11 @@ export const Login = () => {
     }
   };
 
-  const [loginMutation, { data: loginMutationResult, loading }] = useMutation<
-    LoginMutation,
-    LoginMutationVariables
-  >(LOGIN_MUTATION, {
-    onCompleted,
-  });
-  const onSubmit = () => {
-    console.log("gegegege");
-    console.log(loading);
+  const [loginMutation, { data: loginMutationResult, loading, error }] =
+    useMutation<LoginMutation, LoginMutationVariables>(LOGIN_MUTATION, {
+      onCompleted,
+    });
+  const onSubmit = async () => {
     if (!loading) {
       const { email, password } = getValues();
       loginMutation({
@@ -62,16 +59,14 @@ export const Login = () => {
       <div className="bg-white w-full max-w-lg pt-10 pb-7 rounded-lg text-center">
         <h3 className="text-2xl text-gray-800">Log In</h3>
         <form
-          onSubmit={handleSubmit(onSubmit)}
+          onSubmit={handleSubmit(onSubmit, onInvalid)}
           className="grid gap-3 mt-5 px-5"
         >
           <input
             {...register("email", {
-              required: "This is required",
-              pattern: /^[A-Za-z0-9._%+-]+@gmail.com$/,
+              required: true,
             })}
             name="email"
-            required
             type="email"
             placeholder="Email"
             className="input"
@@ -81,10 +76,9 @@ export const Login = () => {
           )}
           <input
             {...register("password", {
-              required: "Password is required",
-              minLength: 1,
+              required: true,
+              minLength: 3,
             })}
-            required
             name="password"
             type="password"
             placeholder="Password"
@@ -96,7 +90,7 @@ export const Login = () => {
           {errors.password?.type === "minLength" && (
             <FormError errorMessage="Password must be more than 10 chars." />
           )}
-          <button className="mt-3 btn">
+          <button disabled={loading} className="mt-3 btn">
             {loading ? "Loading..." : "Log In"}
           </button>
           {loginMutationResult?.login.error && (
