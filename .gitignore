@@ -24,3 +24,6 @@ yarn-error.log*
 
 # tailwind build
 dist
+
+# generated codes for graphql api types
+__types__
