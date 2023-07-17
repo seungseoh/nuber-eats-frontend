@@ -1,5 +1,13 @@
 ## Nuber Eats FrontEnd
 
+# 17.10 UI Clonning
+우버이츠 로고 SVG파일
+
+https://www.ubereats.com/_static/8b969d35d373b512664b78f912f19abc.svg
+
+https://raw.githubusercontent.com/nomadcoders/nuber-eats-frontend/23ac6dbdde8631f177e7f2612de7e587f371f096/src/images/logo.svg
+
+
 # 17.7 Apollo Codegen
 https://www.graphql-code-generator.com/docs/guides/react
 여기서 graphql-code-generator를 설치 하시면됩니다
