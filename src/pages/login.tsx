@@ -4,6 +4,8 @@ import { useForm } from "react-hook-form";
 import { FormError } from "../components/form-error";
 import { LoginMutation, LoginMutationVariables } from "../__types__/graphql";
 import nuberLogo from "../images/logo.svg";
+import { Button } from "../components/button";
+import { Link } from "react-router-dom";
 
 const LOGIN_MUTATION = gql`
   mutation login($loginInput: LoginInput!) {
@@ -26,8 +28,10 @@ export const Login = () => {
     register,
     getValues,
     handleSubmit,
-    formState: { errors },
-  } = useForm<ILoginForm>();
+    formState: { errors, isValid },
+  } = useForm<ILoginForm>({
+    mode: "onChange",
+  });
   const onInvalid = (errors: Object) => console.error(errors);
   const onCompleted = (data: LoginMutation) => {
     const {
@@ -96,13 +100,17 @@ export const Login = () => {
           {errors.password?.type === "minLength" && (
             <FormError errorMessage="Password must be more than 10 chars." />
           )}
-          <button disabled={loading} className="btn">
-            {loading ? "Loading..." : "Log In"}
-          </button>
+          <Button canClick={isValid} loading={loading} actionText={"Log in"} />
           {loginMutationResult?.login.error && (
             <FormError errorMessage={loginMutationResult.login.error} />
           )}
         </form>
+        <div>
+          New to Nuber?{" "}
+          <Link to="/create-account" className="text-lime-600 hover:underline">
+            Create an Account
+          </Link>
+        </div>
       </div>
     </div>
   );
