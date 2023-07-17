@@ -5,8 +5,8 @@ import { FormError } from "../components/form-error";
 import { LoginMutation, LoginMutationVariables } from "../__types__/graphql";
 
 const LOGIN_MUTATION = gql`
-  mutation login($email: String!, $password: String!) {
-    login(input: { email: $email, password: $password }) {
+  mutation login($loginInput: LoginInput!) {
+    login(input: $loginInput) {
       ok
       token
       error
@@ -17,6 +17,7 @@ const LOGIN_MUTATION = gql`
 interface ILoginForm {
   email: string;
   password: string;
+  resultError?: string;
 }
 
 export const Login = () => {
@@ -26,15 +27,29 @@ export const Login = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<ILoginForm>();
-  const [loginMutation] = useMutation<LoginMutation, LoginMutationVariables>(
-    LOGIN_MUTATION
-  );
+  const onCompleted = (data: LoginMutation) => {
+    const {
+      login: { error, ok, token },
+    } = data;
+    if (ok) {
+      console.log(token);
+    }
+  };
+
+  const [loginMutation, { data: loginMutationResult }] = useMutation<
+    LoginMutation,
+    LoginMutationVariables
+  >(LOGIN_MUTATION, {
+    onCompleted,
+  });
   const onSubmit = () => {
     const { email, password } = getValues();
     loginMutation({
       variables: {
-        email,
-        password,
+        loginInput: {
+          email,
+          password,
+        },
       },
     });
   };
@@ -78,6 +93,9 @@ export const Login = () => {
             <FormError errorMessage="Password must be more than 10 chars." />
           )}
           <button className="mt-3 btn">Log In</button>
+          {loginMutationResult?.login.error && (
+            <FormError errorMessage={loginMutationResult.login.error} />
+          )}
         </form>
       </div>
     </div>

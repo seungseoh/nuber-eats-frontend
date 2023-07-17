@@ -1,5 +1,10 @@
 ## Nuber Eats FrontEnd
 
+# 17.7 Apollo Codegen
+https://www.graphql-code-generator.com/docs/guides/react
+여기서 graphql-code-generator를 설치 하시면됩니다
+
+
 # 17.6 Login Mutation part One
 apollo-tooling
 Apollo 워크플로를 위한 개발 및 생산 도구
