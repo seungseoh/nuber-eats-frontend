@@ -5,6 +5,7 @@ import {
   VerifyEmailMutationVariables,
 } from "../../__types__/graphql";
 import { useMe } from "../../hooks/useMe";
+import { useHistory } from "react-router-dom";
 
 const VERIFY_EMAIL_MUTATION = gql`
   mutation verifyEmail($input: VerifyEmailInput!) {
@@ -18,6 +19,7 @@ const VERIFY_EMAIL_MUTATION = gql`
 export const ConfirmEmail = () => {
   const { data: userData } = useMe();
   const client = useApolloClient();
+  const history = useHistory();
   const onCompleted = (data: VerifyEmailMutation) => {
     const {
       verifyEmail: { ok },
@@ -34,6 +36,7 @@ export const ConfirmEmail = () => {
           verified: true,
         },
       });
+      history.push("/");
     }
   };
   const [verifyEmail] = useMutation<
@@ -51,7 +54,7 @@ export const ConfirmEmail = () => {
         },
       },
     });
-  }, []);
+  }, [verifyEmail]);
   return (
     <div className="mt-52 flex flex-col items-center justify-center">
       <h2 className="text-lg mb-1 font-medium">Confirming email...</h2>

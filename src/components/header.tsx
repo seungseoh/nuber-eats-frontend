@@ -19,7 +19,7 @@ export const Header: React.FC = () => {
           <img src={nuberLogo} className="w-24" alt="Nuber Eats" />
           <a>{data?.me.email}</a>
           <span className="text-xs">
-            <Link to="/my-profile">
+            <Link to="/edit-profile">
               <FontAwesomeIcon icon={faUser} className="text-xl" />
             </Link>
           </span>
