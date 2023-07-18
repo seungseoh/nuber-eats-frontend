@@ -1,9 +1,10 @@
-import { gql, useMutation } from "@apollo/client";
+import { gql, useApolloClient, useMutation } from "@apollo/client";
 import React, { useEffect } from "react";
 import {
   VerifyEmailMutation,
   VerifyEmailMutationVariables,
 } from "../../__types__/graphql";
+import { useMe } from "../../hooks/useMe";
 
 const VERIFY_EMAIL_MUTATION = gql`
   mutation verifyEmail($input: VerifyEmailInput!) {
@@ -15,19 +16,41 @@ const VERIFY_EMAIL_MUTATION = gql`
 `;
 
 export const ConfirmEmail = () => {
-  const [verifyEmail, { loading: verifyingEmail }] = useMutation<
+  const { data: userData } = useMe();
+  const client = useApolloClient();
+  const onCompleted = (data: VerifyEmailMutation) => {
+    const {
+      verifyEmail: { ok },
+    } = data;
+    if (ok && userData?.me.id) {
+      client.writeFragment({
+        id: `User:${userData.me.id}`,
+        fragment: gql`
+          fragment VerifiedUser on User {
+            verified
+          }
+        `,
+        data: {
+          verified: true,
+        },
+      });
+    }
+  };
+  const [verifyEmail] = useMutation<
     VerifyEmailMutation,
     VerifyEmailMutationVariables
-  >(VERIFY_EMAIL_MUTATION);
+  >(VERIFY_EMAIL_MUTATION, {
+    onCompleted,
+  });
   useEffect(() => {
     const [_, code] = window.location.href.split("code=");
-    /*     verifyEmail({
+    verifyEmail({
       variables: {
         input: {
           code,
         },
       },
-    }); */
+    });
   }, []);
   return (
     <div className="mt-52 flex flex-col items-center justify-center">
