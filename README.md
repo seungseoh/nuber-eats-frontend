@@ -1,5 +1,17 @@
 ## Nuber Eats FrontEnd
 
+# 18.0 Verifying Email part One
+
+출처: https://reactrouter.com/web/example/query-parameters
+
+function useQuery() {
+return new URLSearchParams(useLocation().search);
+}
+const param = useParam();
+const verifyCode = param.get('code');
+이런식으로 훅을 만들어 사용하면 편하게 쓸 수 있더라구요.
+저는 useQuery가 apollo/client의 useQuery랑 이름이 겹쳐셔 useQueryParam으로 바꿔서 사용 중입니다.
+
 # 17.18 Header part Two
 
 Fontawesome 설치

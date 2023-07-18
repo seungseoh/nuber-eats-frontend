@@ -6,10 +6,14 @@ import { Restaurants } from "../pages/client/restaurants";
 import { NotFound } from "../pages/404";
 import { Header } from "../components/header";
 import { useMe } from "../hooks/useMe";
+import { ConfirmEmail } from "../pages/user/confirm-email";
 
 const ClientRoutes = [
-  <Route key="Restaurants" path="/" exact>
+  <Route key={1} path="/" exact>
     <Restaurants />
+  </Route>,
+  <Route key={2} path="/confirm" exact>
+    <ConfirmEmail />
   </Route>,
 ];
 
