@@ -1,5 +1,21 @@
 ## Nuber Eats FrontEnd
 
+# 19.8 Restaurant part One
+
+react-router-dom v6를 사용하시는 분들은 useParams를 쓸 때
+interface IRestaurantParams {
+id: string;
+}
+...
+const { id } = useParams() as IRestaurantParams;
+
+# 19.7 Code Challenge
+
+코드 챌린지
+
+- Search 페이지에 받아온 레스토랑 보여주기
+- 카테고리 페이지에 받아온 레스토랑 보여주기
+
 # 19.6 Category
 
 useParams 타입 지정
