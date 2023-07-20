@@ -1,5 +1,12 @@
 ## Nuber Eats FrontEnd
 
+# 19.2 Restaurants List
+
+Pixabay 무료 이미지
+이미지 필요하신 분은 아래 이미지 주소를 DB에 넣어서 사용하시면 됩니다.
+https://i.ibb.co/3zpFcJZ/pizza.jpg
+https://i.ibb.co/WzyF0vP/kimbab.jpg
+
 # 18.0 Verifying Email part One
 
 출처: https://reactrouter.com/web/example/query-parameters
