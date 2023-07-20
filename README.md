@@ -1,5 +1,50 @@
 ## Nuber Eats FrontEnd
 
+# 19.5 Search part Two
+
+Fragments
+GraphQL Fragment는 여러 query와 mutation에 공유할 수 있는 논리 조각입니다.
+https://www.apollographql.com/docs/react/data/fragments/#example-usage
+
+useLazyQuery
+사용자가 버튼을 클릭하는 것과 같은 다른 이벤트에 대한 응답으로 쿼리를 실행할 때 사용할 수 있다. useQuery와 달리 useLazyQuery를 호출하면 연결된 쿼리가 즉시 실행되지 않습니다.
+useLazyQuery가 리턴하는 튜플의 첫 번째 항목은 쿼리 함수이고, 두 번째 항목은 useQuery가 반환한 동일한 결과 객체입니다.
+https://www.apollographql.com/docs/react/data/queries/#manual-execution-with-uselazyquery
+
+decodeURI()
+decodeURI() 함수는 encodeURI()의 반대로, URI를 해독합니다.
+한글로 검색시 decodeURI를 통해 해독한 후 키워드를 가져올 수 있습니다.
+
+```
+decodeURI('https://developer.mozilla.org/ru/docs/JavaScript_%D1%88%D0%B5%D0%BB%D0%BB%D1%8B');
+// "https://developer.mozilla.org/ru/docs/JavaScript_шеллы"
+```
+
+https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/decodeURI
+
+# 19.4 Search part One
+
+URL에 있는 데이터 숨기기
+
+react-router v6을 쓰신다면
+history 부분을
+const navigate = useNavigate();
+const onSearchSubmit = () => {
+// console.log(getValues());
+const searchTerm = getValues().searchTerm;
+navigate({
+pathname: "/search",
+search: `?term=${searchTerm}`,
+});
+};
+
+react-router-dom의 버전 6를 사용 중이시라면, useHistory는 Defrecated 되어서 사용이 불가능합니다. 따라서 history.push도 사용이 안됩니다.
+
+const navigate = useNavigate();
+navigate("/search", { state: { searchTerm }});
+
+으로 사용한 뒤에, search 페이지에서는 useLocation 으로 받아서 사용하면 됩니다.
+
 # 19.2 Restaurants List
 
 Pixabay 무료 이미지
