@@ -1,5 +1,38 @@
 ## Nuber Eats FrontEnd
 
+# 20.0 Tests Setup
+
+React Testing Library
+좋은 테스트 방법을 권장하는 간단하고 완전한 테스트 유틸리티
+https://testing-library.com/docs/react-testing-library/intro/
+
+CRA Running Tests
+Create React App은 Jest를 테스트 러너로 사용합니다.
+Jest는 노드 기반 러너입니다. 즉, 테스트는 항상 실제 브라우저가 아닌 노드 환경에서 실행됩니다. 이를 통해 빠른 반복 속도를 가능합니다.
+https://create-react-app.dev/docs/running-tests
+
+Coverage Reporting
+npm test -- --coverage --watchAll=false
+위의 명령어를 실행하려면 최소 단 한 개의 테스트 파일이 존재해야 합니다. (ex:App.test.tsx)
+https://create-react-app.dev/docs/running-tests#coverage-reporting
+
+Create React App이 Jest에 사용하는 기본 구성 (Configuration)
+https://create-react-app.dev/docs/running-tests#configuration
+
+collectCoverageFrom
+test coverage에 포함하려는 파일을 배열 안에 지정해 줄 수 있고, 포함하지 않으려는 파일은 앞에 !을 붙여서 제외할 수 있습니다.
+// 예시
+```
+{
+"collectCoverageFrom": [
+"**/*.{js,jsx}",
+"!**/node_modules/**",
+"!**/vendor/**"
+]
+}
+```
+https://jestjs.io/docs/configuration#collectcoveragefrom-array
+
 # 19.8 Restaurant part One
 
 react-router-dom v6를 사용하시는 분들은 useParams를 쓸 때
