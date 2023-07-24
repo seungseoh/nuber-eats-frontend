@@ -1,8 +1,25 @@
 ## Nuber Eats FrontEnd
 
+# 20.4 Testing Header and 404
+
+Testing React components (MockedProvider 및 관련 API 사용)
+Apollo Client를 사용하는 React 컴포넌트에 대한 모든 테스트는 React의 context에서 Apollo Client를 이용 가능하도록 해야 합니다. 테스트에서는 ApolloProvider 컴포넌트 대신 MockedProvider 컴포넌트를 사용하여 래핑합니다. MockedProvider 컴포넌트를 사용하면 테스트에서 실행되는 개별 쿼리에 대한 mock response를 정의할 수 있습니다. 즉, 테스트에서 GraphQL 서버와 통신할 필요가 없으므로 외부 종속성이 제거되어 테스트의 안정성이 향상됩니다.
+https://www.apollographql.com/docs/react/development-testing/testing/
+
+Defining mocked responses
+MockedProvider의 mocks prop은 객체의 배열이며, 각각은 단일 작업에 대한 모의 응답을 정의합니다.
+request와 result를 정의: query를 request하고, query의 result을 mock한다.
+https://www.apollographql.com/docs/react/development-testing/testing/#defining-mocked-responses
+
+- Avoid wrapping Testing Library util calls in
+  waitFor나 act를 사용할 때 위와 같은 경고창이 뜨시면 render()를 함수 밖으로 빼주시면 됩니다.
+  https://github.com/testing-library/eslint-plugin-testing-library/blob/main/docs/rules/no-unnecessary-act.md
+
 # 20.2 Button Tests
+
 rerender
 props가 올바르게 업데이트되고 있는지 확인하기 위해 props 업데이트를 수행하는컴포넌트를 테스트할 수 있습니다. 즉, 테스트에서 렌더링된 컴포넌트의 props를 업데이트하려는 경우 사용할 수 있습니다.
+
 ```
 import {render} from '@testing-library/react'
 
@@ -11,6 +28,7 @@ const {rerender} = render(< NumberDisplay number={1} / >)
 // 같은 컴포넌트를 다른 props로 리랜더링
 rerender(< NumberDisplay number={2} / >)
 ```
+
 https://testing-library.com/docs/react-testing-library/api/#rerender
 
 Update Props 예시
@@ -19,7 +37,6 @@ https://testing-library.com/docs/example-update-props/
 TypeError: expect(...).toHaveTextContent is not a function 오류시 해당 파일에 import "@testing-library/jest-dom"; 해오시면 됩니다.
 https://stackoverflow.com/questions/65723708/react-testing-library-typeerror-expect-tohavetextcontent-is-not-a-functi
 https://testing-library.com/docs/react-testing-library/example-intro/
-
 
 # 20.0 Tests Setup
 
@@ -43,6 +60,7 @@ https://create-react-app.dev/docs/running-tests#configuration
 collectCoverageFrom
 test coverage에 포함하려는 파일을 배열 안에 지정해 줄 수 있고, 포함하지 않으려는 파일은 앞에 !을 붙여서 제외할 수 있습니다.
 // 예시
+
 ```
 {
 "collectCoverageFrom": [
@@ -52,6 +70,7 @@ test coverage에 포함하려는 파일을 배열 안에 지정해 줄 수 있�
 ]
 }
 ```
+
 https://jestjs.io/docs/configuration#collectcoveragefrom-array
 
 # 19.8 Restaurant part One
