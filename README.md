@@ -1,5 +1,23 @@
 ## Nuber Eats FrontEnd
 
+# 20.5 Login Tests part One
+
+Mock Apollo Client
+Apollo 클라이언트를 사용하는 unit test 컴포넌트를 돕습니다.
+mock-apollo-client 라이브러리는 단위 테스트 내에서 더 많은 제어를 허용하여 위의 문제를 해결합니다.
+npm i mock-apollo-client
+https://github.com/mike-gibson/mock-apollo-client
+
+user-event v13
+user-event는 내장된 fireEvent 메소드보다 브라우저 상호작용의 고급 시뮬레이션을 제공하는 테스팅 라이브러리용 컴패니언 라이브러리입니다.
+https://testing-library.com/docs/ecosystem-user-event/
+
+type(element, text, [options])
+input 또는 textarea 내부에 텍스트를 씁니다.
+
+clear(element)
+input 또는 textarea 내부의 텍스트를 선택하여 삭제합니다.
+
 # 20.4 Testing Header and 404
 
 Testing React components (MockedProvider 및 관련 API 사용)

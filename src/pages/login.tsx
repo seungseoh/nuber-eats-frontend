@@ -88,7 +88,7 @@ export const Login = () => {
               },
               pattern: {
                 value: EMAIL_PATTERN,
-                message: "이메일 형식으로 입력해야 합니다.",
+                message: "Please enter a valid email",
               },
             })}
             name="email"
