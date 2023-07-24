@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 import { authTokenVar, isLoggedInVar } from "../apollo";
 import { EMAIL_PATTERN, LOCALSTORAGE_TOKEN } from "../constants";
 
-const LOGIN_MUTATION = gql`
+export const LOGIN_MUTATION = gql`
   mutation login($loginInput: LoginInput!) {
     login(input: $loginInput) {
       ok
@@ -35,7 +35,7 @@ export const Login = () => {
   } = useForm<ILoginForm>({
     mode: "onChange",
   });
-  const onInvalid = (errors: Object) => console.error(errors);
+  // const onInvalid = (errors: Object) => console.error(errors);
   const onCompleted = (data: LoginMutation) => {
     const {
       login: { ok, token },
@@ -77,7 +77,7 @@ export const Login = () => {
           Welcome back
         </h4>
         <form
-          onSubmit={handleSubmit(onSubmit, onInvalid)}
+          onSubmit={handleSubmit(onSubmit)}
           className="grid gap-3 mt-5 w-full"
         >
           <input
