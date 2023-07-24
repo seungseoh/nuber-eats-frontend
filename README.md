@@ -1,5 +1,13 @@
 ## Nuber Eats FrontEnd
 
+# 20.7 Login Tests part Three
+
+jest.spyOn(object, methodName)
+
+jest.fn과 유사한 mock 함수를 생성하지만 object[methodName]에 대한 호출도 추적합니다. Jest mock 함수를 반환합니다.
+
+https://jestjs.io/docs/jest-object#jestspyonobject-methodname
+
 # 20.5 Login Tests part One
 
 Mock Apollo Client
