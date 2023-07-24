@@ -1,5 +1,26 @@
 ## Nuber Eats FrontEnd
 
+# 20.2 Button Tests
+rerender
+props가 올바르게 업데이트되고 있는지 확인하기 위해 props 업데이트를 수행하는컴포넌트를 테스트할 수 있습니다. 즉, 테스트에서 렌더링된 컴포넌트의 props를 업데이트하려는 경우 사용할 수 있습니다.
+```
+import {render} from '@testing-library/react'
+
+const {rerender} = render(< NumberDisplay number={1} / >)
+
+// 같은 컴포넌트를 다른 props로 리랜더링
+rerender(< NumberDisplay number={2} / >)
+```
+https://testing-library.com/docs/react-testing-library/api/#rerender
+
+Update Props 예시
+https://testing-library.com/docs/example-update-props/
+
+TypeError: expect(...).toHaveTextContent is not a function 오류시 해당 파일에 import "@testing-library/jest-dom"; 해오시면 됩니다.
+https://stackoverflow.com/questions/65723708/react-testing-library-typeerror-expect-tohavetextcontent-is-not-a-functi
+https://testing-library.com/docs/react-testing-library/example-intro/
+
+
 # 20.0 Tests Setup
 
 React Testing Library
