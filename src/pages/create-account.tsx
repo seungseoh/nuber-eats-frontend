@@ -13,7 +13,7 @@ import {
 } from "../__types__/graphql";
 import { EMAIL_PATTERN } from "../constants";
 
-const CREATE_ACCOUNT_MUTATION = gql`
+export const CREATE_ACCOUNT_MUTATION = gql`
   mutation createAccount($createAccountInput: CreateAccountInput!) {
     createAccount(input: $createAccountInput) {
       ok
