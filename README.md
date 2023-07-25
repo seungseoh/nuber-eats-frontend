@@ -1,5 +1,20 @@
 ## Nuber Eats FrontEnd
 
+# 21.7 EditProfile E2E part Two
+
+Aliasing individual requests
+https://docs.cypress.io/api/commands/intercept#Aliasing-individual-requests
+
+Intercepting a response (응답 가로채기)
+https://docs.cypress.io/api/commands/intercept#Intercepting-a-response
+
+fixture
+파일에 있는 고정 데이터 세트를 로드합니다.
+https://docs.cypress.io/api/commands/intercept#Stubbing-a-response
+
+res.send()를 통한 fixture보내기
+https://docs.cypress.io/api/commands/intercept#Ending-the-response-with-res-send
+
 # 21.4 Create Account E2E part Two
 
 intercept
