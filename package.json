@@ -6,7 +6,7 @@
     "./main.css": "./dist/main.css"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "PORT=3001 react-scripts start",
     "tailwind:watch": "npx tailwindcss -i ./src/tailwind.css -o ./dist/main.css --watch",
     "codegen": "graphql-codegen",
     "codegen:watch": "graphql-codegen --watch",
@@ -33,6 +33,7 @@
   "devDependencies": {
     "@graphql-codegen/cli": "^4.0.1",
     "@graphql-codegen/client-preset": "^4.0.1",
+    "@testing-library/cypress": "^9.0.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^13.5.0",

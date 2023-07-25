@@ -1,5 +1,24 @@
 ## Nuber Eats FrontEnd
 
+# 21.1 Our First Cypress Test
+cypress.json
+Cypress Test Runner를 처음 열면 cypress.json 구성 파일이 생성됩니다. 이 JSON 파일은 사용자가 제공하는 구성 값을 저장하는 데 사용됩니다.
+https://docs.cypress.io/guides/references/configuration#cypress-json
+
+baseUrl
+cy.visit() 또는 cy.request() 명령의 URL에 대한 접두사로 사용되는 URL
+
+Cypress Testing Library
+Cypress 테스팅 라이브러리를 사용하면 Cypress End to End 브라우저 테스트에서 dom-testing 쿼리를 사용할 수 있습니다.
+https://testing-library.com/docs/cypress-testing-library/intro/
+https://github.com/testing-library/cypress-testing-library
+
+Cypress Testing Library 사용하기
+1. npm install --save-dev @testing-library/cypress 설치
+2. cypress/support/commands.js에 import '@testing-library/cypress/add-commands'; 추가
+3. tsconfig.json의 compilerOptions -> types -> @testing-library/cypress 추가
+4. DOM Testing Library의 findBy같은 자동완성이 뜨지 않는다면 VSCode 재실행
+
 # 20.7 Login Tests part Three
 
 jest.spyOn(object, methodName)
