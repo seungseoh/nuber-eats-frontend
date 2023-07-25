@@ -1,6 +1,48 @@
 ## Nuber Eats FrontEnd
 
+
+
+# 21.3 Create Account E2E part One
+
+wait
+
+다음 명령으로 이동하기 전에 지정한 밀리초 동안 기다리거나 aliased resource가 해결될 때까지 기다리도록 한다.
+
+```
+cy.wait(time)
+cy.wait(alias)
+cy.wait(aliases)
+cy.wait(time, options)
+cy.wait(alias, options)
+cy.wait(aliases, options)
+```
+
+https://docs.cypress.io/api/commands/wait
+
+# 21.2 Login E2E
+
+window()
+현재 활성화된 페이지의 window 객체를 가져옵니다.
+
+```
+cy.window()
+cy.window(options)
+```
+
+https://docs.cypress.io/api/commands/window
+
+its()
+이전에 가져온 객체에 대한 프로퍼티 값을 가져옵니다.
+
+```
+.its(propertyName)
+.its(propertyName, options)
+```
+
+https://docs.cypress.io/api/commands/its
+
 # 21.1 Our First Cypress Test
+
 cypress.json
 Cypress Test Runner를 처음 열면 cypress.json 구성 파일이 생성됩니다. 이 JSON 파일은 사용자가 제공하는 구성 값을 저장하는 데 사용됩니다.
 https://docs.cypress.io/guides/references/configuration#cypress-json
@@ -14,6 +56,7 @@ https://testing-library.com/docs/cypress-testing-library/intro/
 https://github.com/testing-library/cypress-testing-library
 
 Cypress Testing Library 사용하기
+
 1. npm install --save-dev @testing-library/cypress 설치
 2. cypress/support/commands.js에 import '@testing-library/cypress/add-commands'; 추가
 3. tsconfig.json의 compilerOptions -> types -> @testing-library/cypress 추가

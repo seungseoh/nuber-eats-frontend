@@ -1,4 +1,4 @@
-describe("test11", () => {
+describe("Log In", () => {
   const user = cy;
   it("should see login page", () => {
     user.visit("/").title().should("eq", "Login | Nuber Eats");
