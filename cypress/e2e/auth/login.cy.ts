@@ -17,13 +17,6 @@ describe("Log In", () => {
     user.findByRole("alert").should("have.text", "Password is required");
   });
   it("can fill out the form and log in", () => {
-    user.visit("/");
-    user.findByPlaceholderText(/email/i).type("test1@abc.com");
-    user.findByPlaceholderText(/password/i).type("12345");
-    user
-      .findByRole("button")
-      .should("not.have.class", "pointer-events-none")
-      .click();
-    user.window().its("localStorage.nuber-token").should("be.a", "string");
+    user.login("test1@abc.com", "12345");
   });
 });

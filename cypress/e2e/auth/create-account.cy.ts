@@ -19,7 +19,7 @@ describe("Create Account", () => {
   it("should be able to create account and login", () => {
     user.intercept("http://localhost:8000/graphql", (req) => {
       const { operationName } = req.body;
-      if (operationName && operationName === "createAccountMutation") {
+      if (operationName && operationName === "createAccount") {
         req.reply((res) => {
           res.send({
             data: {
@@ -38,10 +38,6 @@ describe("Create Account", () => {
     user.findByPlaceholderText(/password/i).type("12345");
     user.findByRole("button").click();
     user.wait(1000);
-    user.title().should("eq", "Login | Nuber Eats");
-    user.findByPlaceholderText(/email/i).type("testman123@abc.com");
-    user.findByPlaceholderText(/password/i).type("12345");
-    user.findByRole("button").click();
-    user.window().its("localStorage.nuber-token").should("be.a", "string");
+    user.login("test1@abc.com", "12345");
   });
 });
