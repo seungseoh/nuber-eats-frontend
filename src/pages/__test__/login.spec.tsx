@@ -1,17 +1,11 @@
+import React from "react";
 import { ApolloProvider } from "@apollo/client";
 import { createMockClient, MockApolloClient } from "mock-apollo-client";
-import {
-  queryByText,
-  render,
-  RenderResult,
-  waitFor,
-} from "@testing-library/react";
-import React from "react";
+import { render, RenderResult, waitFor } from "@testing-library/react";
 import { Login, LOGIN_MUTATION } from "../login";
 import { HelmetProvider } from "react-helmet-async";
 import { BrowserRouter as Router } from "react-router-dom";
 import userEvent from "@testing-library/user-event";
-import { act } from "@testing-library/react";
 
 describe("<Login />", () => {
   let renderResult: RenderResult;
@@ -55,7 +49,7 @@ describe("<Login />", () => {
   });
 
   it("display password required errors", async () => {
-    const { getByPlaceholderText, debug, getByRole } = renderResult;
+    const { getByPlaceholderText, getByRole } = renderResult;
     const email = getByPlaceholderText(/email/i);
     const submitBtn = getByRole("button");
     await waitFor(() => {
@@ -67,7 +61,7 @@ describe("<Login />", () => {
   });
 
   it("submits form and calls mutation", async () => {
-    const { getByPlaceholderText, debug, getByRole } = renderResult;
+    const { getByPlaceholderText, getByRole } = renderResult;
     const email = getByPlaceholderText(/email/i);
     const password = getByPlaceholderText(/password/i);
     const submitBtn = getByRole("button");
