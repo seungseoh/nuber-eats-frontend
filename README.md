@@ -1,6 +1,20 @@
 ## Nuber Eats FrontEnd
 
+# 21.4 Create Account E2E part Two
 
+intercept
+네트워크 request와 response를 spy 및 stub(mock)할 때 사용한다.
+https://docs.cypress.io/api/commands/intercept
+
+Ending the response with res.send() (res.send()로 응답 종료)
+res.send()가 호출되면 response 단계가 즉시 종료되고 현재 request 대해 다른 response 핸들러가 호출되지 않습니다.
+https://docs.cypress.io/api/commands/intercept#Ending-the-response-with-res-send
+
+Dynamically stubbing a response (response를 동적으로 stubbing)
+https://docs.cypress.io/api/commands/intercept#Dynamically-stubbing-a-response
+
+Controlling the response (response를 컨트롤)
+https://docs.cypress.io/api/commands/intercept#Controlling-the-response
 
 # 21.3 Create Account E2E part One
 
